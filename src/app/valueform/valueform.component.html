@@ -1,0 +1,155 @@
+
+<mat-card>
+  <mat-toolbar>Validation Form</mat-toolbar>
+  <br><br>
+<form #registerForm="ngForm" name="form"(ngsubmit)="registerForm.form.valid &&  onSubmit(registerForm)">
+
+<mat-form-field>
+  <input
+  type="text"
+  matInput
+  placeholder="enter your name"
+  name="username"
+  #username="ngModel"
+  [(ngModel)]="model.username"
+  required
+  [ngClass]="{'is-invalid':registerForm.submitted && username.invalid}">
+</mat-form-field>
+<mat-error *ngIf="registerForm.submitted && username.invalid">
+
+  <mat-error *ngIf="username.errors?.required">
+Name should be entered
+</mat-error>
+</mat-error>
+<br><br>
+
+<mat-form-field>
+  <input
+  type="text"
+  matInput
+  placeholder="father's name"
+  name="father"
+  #father="ngModel"
+  [(ngModel)]="model.father"
+  required
+  [ngClass]="{'is-invalid':registerForm.submitted && father.invalid}">
+</mat-form-field>
+<mat-error *ngIf="registerForm.submitted && father.invalid">
+
+  <mat-error *ngIf="father.errors?.required">
+Name should be entered
+</mat-error>
+</mat-error>
+<br><br>
+<mat-form-field>
+  <input
+  type="text"
+  matInput
+  placeholder="mother name"
+  name="mother"
+  #mother="ngModel"
+  [(ngModel)]="model.mother"
+  required
+  [ngClass]="{'is-invalid':registerForm.submitted && mother.invalid}">
+</mat-form-field>
+<mat-error *ngIf="registerForm.submitted && mother.invalid">
+
+  <mat-error *ngIf="mother.errors?.required">
+Name should be entered
+</mat-error>
+</mat-error>
+<br><br>
+
+<mat-form-field>
+  <input
+  type="text"
+  matInput
+  placeholder="enter email"
+  name="useremail"
+  #useremail="ngModel"
+  email
+  [(ngModel)]="model.useremail"
+  required
+  [ngClass]="{'is-invalid':registerForm.submitted && useremail.invalid}">
+
+</mat-form-field>
+<mat-error *ngIf="registerForm.submitted && username.invalid"></mat-error>
+<mat-error *ngIf="useremail.errors?.required">
+
+    email is required
+
+  </mat-error>
+  <mat-error *ngIf="useremail.errors?.email">
+
+  </mat-error>
+
+<br><br>
+<mat-form-field>
+  <mat-select
+  placeholder="Location"
+  #Location="ngModel"
+  name="ngModel"
+  [(ngModel)]="model.Location"
+  required
+  [ngClass]="{'is-invalid':registerForm.submitted && Location.invalid}">
+<mat-option value="chandigarh">chandigarh</mat-option>
+<mat-option value="ambala">ambala</mat-option>
+<mat-option value="panipat">panipat</mat-option>
+
+</mat-select>
+</mat-form-field>
+<br><br>
+<mat-error *ngIf="registerForm.submitted && Location.invalid"></mat-error>
+  <mat-error *ngIf="Location.errors?.required">select location
+
+  </mat-error>
+
+<br><br>
+
+<mat-form-field>
+  <input type="text" placeholder="Enter password" #pswrd="ngModel" required matInput name="pswrd" [(ngModel)]="model.pswrd" [ngClass]="{'is-invalid':registerForm.submitted && pswrd.invalid}" minlength=5>
+</mat-form-field>
+<mat-error *ngIf="registerForm.submitted && pswrd.invalid">
+<mat-error *ngIf="pswrd.errors?.required">
+  Password Should be entered
+</mat-error>
+</mat-error>
+<br><br>
+<mat-form-field>
+  <input
+  type="text"
+  placeholder="enter confirm password"
+  required
+  matInput
+  name="cpswrd"
+  #cpswrd="ngModel"
+  [(ngModel)]="model.cpswrd"
+  [ngClass]="{'is-invalid':registerForm.submitted && cpswrd.invalid}">
+<mat-error *ngIf="registerForm.submitted && cpswrd.invalid" cpswrd="ngModel"></mat-error>
+<mat-error *ngIf="cpswrd.errors?.required">confirm password</mat-error>
+<mat-error *ngIf="cpswrd.errors?.required">
+      password and confirm password should match
+    </mat-error>
+
+</mat-form-field>
+<br><br>
+<mat-checkbox
+name="terms"
+#terms="ngModel"
+[(ngModel)]="model.terms"
+required
+[ngClass]="{'is-invalid':registerForm.submitted && terms.invalid}">
+Accept terms and condition
+</mat-checkbox>
+<mat-error *ngIf="registerForm.submitted && terms.invalid">
+
+  <mat-error *ngIf="terms.errors?.required">
+  Accept terms
+</mat-error>
+</mat-error>
+<br><br>
+
+<button type="submit" mat-raised-button color="accent"> submit
+</button>
+</form>
+</mat-card>

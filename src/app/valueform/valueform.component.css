@@ -1,0 +1,10 @@
+mat-toolbar{
+  text-align: center;
+  margin-top: 10px;
+  color: brown;
+  padding-bottom: 10px;
+  background-color: cyan;
+}
+mat-form-field{
+  width: 700px;
+}
